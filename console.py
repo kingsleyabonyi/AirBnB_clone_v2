@@ -124,11 +124,11 @@ class HBNBCommand(cmd.Cmd):
         if words[0] == '':
             print("** class name missing **")
             return
-        elif words[0] not in HBNBCommand.classes:
+        elif words[0] not in self.classes:
             print("** class doesn't exist **")
             return
         else:
-            new_instance = HBNBCommand.classes[words[0]]()
+            new_instance = self.classes[words[0]]()
             storage.save()
             key = "{}.{}".format(words[0], new_instance.id)
             for k in app:
@@ -143,8 +143,6 @@ class HBNBCommand(cmd.Cmd):
             storage.all()[key].save()
 
         print(new_instance.id)
-        print('22.56'.isdigit())
-        # return ''
 
     def help_create(self):
         """ Help information for the create method """
