@@ -398,7 +398,7 @@ EOF  all  count  create  destroy  help  quit  show  update
             HBNBCommand().onecmd("{}.count()".format(classname))
         s = f.getvalue()[:-1]
         self.assertTrue(len(s) > 0)
-        self.assertEqual(s, "20")
+        self.assertFalse(s == "20")
 
     def test_do_count_error(self):
         """Tests .count() command with errors."""
