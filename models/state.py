@@ -10,8 +10,8 @@ from models.city import City
 class State(BaseModel, Base):
     """ State class """
     if storage_type == 'db':
-        __tablename = 'states'
-        name = Column(String(128))
+        __tablename__ = 'states'
+        name = Column(String(128), nullable=False)
         cities = relationship('City', backref='states')
     else:
         @property
